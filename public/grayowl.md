@@ -39,7 +39,7 @@ Text or Call Me
  - Coolbeans Coffee Kiosk
  - Yellowdog Coffee and Roastery
 
-*I have spent the most time (almost all 3 years) at Boxcar Coffee and Bikes. The Boxcar community has been so caring and welcoming to me, and so I’ve stuck with them.*
+*I have spent the most time (almost all 3 years) at Boxcar Coffee and Bikes. The Boxcar community has been so caring and welcoming to me, but I need to move on to a place where I can grow more as a person.*
 
 ## **What is your scheduling availability?**
 *It depends on the hours offered. If I can make enough to pay my bills y’all can have me any time of the week. Otherwise, I will have to juggle Boxcar hours with Gray Owl.*
