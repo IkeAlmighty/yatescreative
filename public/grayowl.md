@@ -1,5 +1,5 @@
 # Gray Owl Coffee
-## Application for Employment
+## Application for Worker-Ownership
 -----
 Isaac Yates  
 Age 25  
