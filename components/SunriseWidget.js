@@ -40,7 +40,7 @@ export default function SunriseWidget() {
   return (
     <div>
       <div className={styles.timeToSunrise}>{timeToSunrise}</div>
-      <div className={styles.footer}>until Gray Owl's next sunrise.</div>
+      <div className={styles.footer}>until Gray Owl&apos;s next sunrise.</div>
     </div>
   );
 }
