@@ -18,12 +18,10 @@ export default function Index() {
 
   return (
     <div className={styles.content}>
+      <SunriseWidget />
       <div id="markdown"></div>
-      <div className="widgets">
-        <TimeWidget />
-        {/* <SunriseWidget />
-        <WeatherWidget /> */}
-      </div>
+      <TimeWidget />
+      {/* <WeatherWidget /> */}
     </div>
   );
 }
