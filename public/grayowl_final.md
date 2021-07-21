@@ -27,8 +27,9 @@ Text or Call Me
 *As I mentioned above, **I can bring my tech skills to Gray Owl**. I can provide my computer programming prowess to the entire team, so that y'all can focus less on the tedious parts of your work and more on what you love. Maybe that means getting the POS to communicate with Google Sheets, or maybe it means setting up an online store for reserving coffee beans for pickup by customers. Maybe it means helping the Gray Owl arts community reach an audience. There are as many possibilities as there are coffee beans on this planet.*
 
 ## **Are you interested in the path of becoming a worker-owner? Why or why not?**  
-*I am interested! I’ve read that employee owned businesses grow faster and lead to higher overall happiness among the workers. I also think that wealth distribution is a large problem in our world, and would like to become part of the solution.*  
-*In addition to all this, Gray Owl Coffee has been my 3rd place for almost a decade. I love Gray Owl and I love y’all who work there, and would like to more directly help us all grow.*
+*I am interested! I’ve read that employee owned businesses grow faster and lead to higher overall happiness among the workers. I also think that wealth distribution is a large problem in our world, and would like to become part of the solution.*
+
+*In addition to all this, Gray Owl Coffee has a been a second home to me for almost a decade. I love Gray Owl and I love y’all who work there, and would like to more directly help us all grow.*
 
 ## **What are you passionate about?**
 *I am passionate about creating cool things. This includes music, video games, board games, websites, creative writing, and coffee.*
