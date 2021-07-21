@@ -9,7 +9,7 @@ IsaacYates7@gmail.com
 Text or Call Me
 
 ## **How familiar are you with Gray Owl? Why would you like to work here?**  
-***The first shop** I became a regular at, around 9 years ago, was Gray Owl Coffee. I studied for AP U.S. History in high school at Gray, and didn’t understand what a mocha was, but loved drinking 2-3 of them on my own lunch money around 5:00pm each night. Sometime during those first years as a regular, my best friend’s parents bought Gray Owl. Avery asked me if I’d like to help paint the walls. I hopped on my bike and went to Gray and armed myself with one of the many paint rollers.*
+***The first shop** I became a regular at, around 9 years ago, was Gray Owl Coffee. I studied for AP U.S. History in high school at Gray, and didn’t understand what a mocha was, but loved drinking 2-3 of them on my own lunch money around 5:00pm each night. Sometime during those first years as a regular, my best friend’s parents bought Gray Owl. They asked me if I’d like to help paint the walls. I hopped on my bike and went to Gray and armed myself with one of the many paint rollers.*
 
 *I met Andrew that day. Andrew is so freaking cool. He has this aura that is a mixture of ice cold coolness and dad jeans. Over the years, I learned everybody’s names, and y’all learned mine. In this way, I discovered that Andrew was not the only awesome person at Gray Owl. I've come back many times since and enjoyed coffee, and even though my taste has evolved since high school, I still love to get a 12 oz mocha at the Owl. It reminds me of where all this love for coffee came from, and it tastes really sweet and delicious.*
 
