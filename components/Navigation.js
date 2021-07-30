@@ -1,7 +1,3 @@
-export default Navigation = () => {
-    return (
-        <div className={st}>
-
-        </div>
-    );
+export default function Navigation() {
+  return <div></div>;
 }

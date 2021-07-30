@@ -1,14 +1,19 @@
-import Image from 'next/image'
+import Image from "next/image";
 
-export default ArtTile = ({imageURL})=> {
-    const style = {
-        padding: "20px"
-    }
-    return (
-        <div>
-            <div className={style}>
-                <Image src={imageURL} />
-            </div>
-        </div>
-    );
+export default function ArtTile({imageURL}) {
+  const style = {
+    padding: "20px",
+  };
+  return (
+    <div>
+      <div className={style}>
+        <Image
+          layout="fill"
+          objectFit="contain"
+          src={imageURL}
+          alt="not loaded"
+        />
+      </div>
+    </div>
+  );
 }
