@@ -18,3 +18,7 @@ a {
 p {
   text-align: justify;
 }
+
+input {
+  padding: 10px;
+}
