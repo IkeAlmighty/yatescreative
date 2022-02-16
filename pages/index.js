@@ -15,8 +15,10 @@ export default function Home() {
 
       <Navigation />
 
+      <h1>Isaac - Availability</h1>
+
       <iframe
-        src={`https://calendar.google.com/calendar/embed?src=isaacyates7%40gmail.com&ctz=America%2FChicago`}
+        src={`https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23616161&ctz=America%2FChicago&title=Availability-%20Isaac%20Yates&showNav=1&showTabs=1&showCalendars=0&mode=WEEK&showDate=0&showPrint=0&showTz=1&showTitle=0&src=aXNhYWN5YXRlczdAZ21haWwuY29t&color=%237CB342`}
         style={{
           border: "0px",
           display: "block",
