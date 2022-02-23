@@ -1,8 +1,6 @@
 import Navigation from "../components/Navigation";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import ArtTile from "../components/ArtTile";
-import EventTile from "../components/EventTile";
 import Markdown from "../components/Markdown";
 import clientPromise from "../utils/mongodb";
 
@@ -13,9 +11,12 @@ export default function Home({ poems }) {
         <title>Yates Creative</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <h2>Poetry By Isaac Yates</h2>
+      <hr />
       {poems.map((poem) => (
         <div key={poem.timestamp}>
-          <p>{poem.text}</p>
+          <div>{new Date(poem.timestamp).toLocaleDateString()}</div>
+          <Markdown markdown={poem.text} />
         </div>
       ))}
       <Navigation />

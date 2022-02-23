@@ -1,11 +1,25 @@
+import { getSession } from "next-auth/client";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Markdown from "../../components/Markdown";
 
 import styles from "./index.module.css";
 
-export default function EditPoem({ poems }) {
+export default function EditPoem({ poems, session }) {
   const [text, setText] = useState("");
   const [_poems, setPoems] = useState(poems);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!session || !session.isAdmin) {
+      router.push("/api/auth/signin");
+    }
+  }, []);
+
+  if (!session || !session.isAdmin) {
+    return <div>Unauthorized! Redirecting to Login...</div>;
+  }
 
   async function publish() {
     let res = await fetch(`/api/poems/publish`, {
@@ -33,7 +47,7 @@ export default function EditPoem({ poems }) {
   }
 
   return (
-    <main className="container">
+    <main className="container my-3">
       <div className="row">
         <div className="col mx-auto mb-3">
           <textarea
@@ -51,7 +65,7 @@ export default function EditPoem({ poems }) {
           {_poems.map((poem) => (
             <div key={poem.timestamp} className="border mb-3 p-2">
               <div>{new Date(poem.timestamp).toLocaleDateString()}</div>
-              <Markdown markdown={poem.text.substring(0, 20)} />
+              <Markdown markdown={poem.text.substring(0, 400)} />
               <button onClick={() => delPoem(poem)}>Delete</button>
             </div>
           ))}
@@ -71,5 +85,5 @@ export async function getServerSideProps(context) {
     .project({ _id: 0 })
     .toArray();
 
-  return { props: { poems } };
+  return { props: { poems, session: await getSession(context) } };
 }

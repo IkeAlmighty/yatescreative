@@ -1,10 +1,7 @@
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 600px;
+  padding: 3rem 1.5rem;
+
   height: 100vh;
 }
 

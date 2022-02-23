@@ -13,16 +13,14 @@ export default NextAuth({
   ],
   callbacks: {
     jwt: async (token, user, account) => {
-      if (user) {
-        const client = await clientPromise;
+      const client = await clientPromise;
 
-        let userData = await client
-          .db()
-          .collection("users")
-          .findOne({ email: user.email });
+      let userData = await client
+        .db()
+        .collection("users")
+        .findOne({ email: token.email });
 
-        if (userData?.isAdmin) token.isAdmin = true;
-      }
+      if (userData?.isAdmin) token.isAdmin = true;
 
       return token;
     },
