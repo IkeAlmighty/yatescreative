@@ -1,10 +1,10 @@
-import EditMarkdown from "../../../../components/EditMarkdown";
+import Markdown from "../../../../components/Markdown";
 import clientPromise from "../../../../utils/mongodb";
 
 export default function EditDocument({ document }) {
   return (
     <>
-      <EditMarkdown markdown={document?.markdown} />
+      <Markdown markdown={document?.markdown} />
     </>
   );
 }

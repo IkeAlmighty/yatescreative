@@ -1,8 +1,8 @@
-import ReactMarkdown from "react-markdown/react-markdown.min";
+import Markdown from "../../../../components/Markdown";
 import clientPromise from "../../../../utils/mongodb";
 
 export default function Chapter({ series, chapter, markdown }) {
-  return <ReactMarkdown>{markdown}</ReactMarkdown>;
+  return <Markdown markdown={markdown} />;
 }
 
 export async function getServerSideProps(context) {
