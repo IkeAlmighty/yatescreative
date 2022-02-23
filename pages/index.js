@@ -14,12 +14,14 @@ export default function Home({ poems }) {
       <h2>Poetry By Isaac Yates</h2>
       <hr />
       {poems.map((poem) => (
-        <div key={poem.timestamp}>
-          <div>{new Date(poem.timestamp).toLocaleDateString()}</div>
+        <div key={poem.timestamp} className={styles.poemContainer}>
           <Markdown markdown={poem.text} />
+          <div className="ml-3">
+            {new Date(poem.timestamp).toLocaleDateString()}
+          </div>
         </div>
       ))}
-      <Navigation />
+      {/* <Navigation /> */}
     </div>
   );
 }
