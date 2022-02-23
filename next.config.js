@@ -1,11 +1,11 @@
-// https://github.com/vercel/next.js/issues/25454#issuecomment-903513941
-// ^ fix for react markdown taken from here
-
-const withTM = require("next-transpile-modules")(["react-markdown"]);
-
-module.exports = withTM({
-  reactStrictMode: true,
+module.exports = {
   images: {
-    domains: ["ibb.co", "i.ibb.co"],
+    domains: ["yatescreative.s3.us-east-2.amazonaws.com"],
   },
-});
+  async redirects() {
+    return [
+      { source: "/admin", destination: "/api/auth/signin", permanent: true },
+      { source: "/login", destination: "/api/auth/signin", permanent: true },
+    ];
+  },
+};

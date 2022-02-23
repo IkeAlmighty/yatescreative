@@ -1,5 +1,5 @@
 {
-  "name": "grayowlapp",
+  "name": "yatescreative",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,13 +12,13 @@
     "aws-sdk": "^2.1009.0",
     "axios": "^0.21.1",
     "bootstrap": "^5.1.3",
-    "mongodb": "^4.0.1",
-    "next": "11.0.1",
+    "marked": "^3.0.8",
+    "mongodb": "^3.5.9",
+    "next": "^11.1.2",
     "next-auth": "^3.29.0",
     "next-transpile-modules": "^8.0.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-markdown": "^7.0.1"
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
     "eslint": "7.31.0",

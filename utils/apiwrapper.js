@@ -36,7 +36,6 @@ function APIWrapper() {
     }
 
     router["_" + req.method.toLowerCase()](req, res);
-
     res.end();
   };
 

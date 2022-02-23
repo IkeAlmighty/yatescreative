@@ -22,3 +22,8 @@ p {
 input {
   padding: 10px;
 }
+
+.content-container {
+  max-width: 900px;
+  margin: auto auto;
+}
