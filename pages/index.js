@@ -29,12 +29,14 @@ export default function Home({ poems }) {
 export async function getServerSideProps(context) {
   const client = await clientPromise;
 
-  const poems = await client
+  const poems_unordered = await client
     .db()
     .collection("poems")
     .find({})
     .project({ _id: 0 })
     .toArray();
+
+  const poems = poems_unordered.sort((a, b) => b.timestamp - a.timestamp);
 
   return { props: { poems } };
 }
