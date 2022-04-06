@@ -1,17 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+h1 {
+  @apply text-3xl font-bold my-6;
+}
+
+h2 {
+  @apply text-2xl font-bold my-6;
+}
+
+button, input[type="submit"], input[type="button"] {
+  @apply border-2 rounded px-2 px-5
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 p {
@@ -20,9 +31,4 @@ p {
 
 input {
   padding: 10px;
-}
-
-.content-container {
-  max-width: 900px;
-  margin: auto auto;
 }
