@@ -1,5 +1,6 @@
 import { getSession } from "next-auth/client";
 import clientPromise from "../../../utils/mongodb";
+import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
   const session = await getSession({ req });
@@ -7,15 +8,14 @@ export default async function handler(req, res) {
     res.status(401).end("Not Authorized");
     return;
   }
-  if (req.method !== "POST") return;
+  if (req.method !== "PATCH") return;
 
   const client = await clientPromise;
-  const { text } = JSON.parse(req.body);
-  let timestamp = Date.now();
+  const { text, _id } = JSON.parse(req.body);
   let mongoRes = await client
     .db()
     .collection("poems")
-    .insertOne({ text, timestamp });
+    .updateOne({ _id: new ObjectId(_id) }, { $set: { text } });
 
-  res.status(201).json({ text, timestamp });
+  res.status(204).json({ text, _id });
 }
