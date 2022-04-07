@@ -26,15 +26,24 @@ a {
 }
 
 p {
-  text-align: justify;
+  @apply my-10 text-justify
 }
 
 input {
-  padding: 10px;
+  @apply p-[10px];
 }
 
 .with-navbar {
   @apply mt-[56px] md:mt-[64px];
+}
+
+.with-footer {
+  /* the footer height isn't static, so I just put lots of room at the bottom. */
+  @apply md:mb-80 mb-40;
+}
+
+.footer {
+  @apply fixed bottom-0 left-0 w-full opacity-90 bg-purple-50 text-center md:text-right;
 }
 
 .content-container {

@@ -1,5 +1,5 @@
 .menu {
-  @apply fixed top-[56px] py-5 w-1/2 h-full bg-slate-200 rounded;
+  @apply fixed top-[56px] py-5 w-1/2 h-full bg-amber-50 border-2 rounded;
 }
 
 .slideIn {

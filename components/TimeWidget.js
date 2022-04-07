@@ -1,5 +1,4 @@
-import {useEffect, useState} from "react";
-import styles from "../styles/TimeWidget.module.css";
+import { useEffect, useState } from "react";
 
 export default function TimeWidget() {
   const [timeString, setTimeString] = useState(undefined);
@@ -18,7 +17,7 @@ export default function TimeWidget() {
     }, 50);
   }, []);
   return timeString ? (
-    <div className={styles.container}>The time is {timeString}</div>
+    <div className="my-0 p-[20px] block text-lg">The time is {timeString}</div>
   ) : (
     ""
   );
