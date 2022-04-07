@@ -1,29 +1,16 @@
 import { getSession } from "next-auth/client";
-import { useRouter } from "next/router";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import Markdown from "../../components/Markdown";
 
 import styles from "./index.module.css";
 
-export default function EditPoem({ poems, session }) {
+export default function EditPoem({ poems }) {
   const [text, setText] = useState("");
   const markdownBox = useRef(null);
 
   const [editId, setEditId] = useState(undefined);
 
   const [_poems, setPoems] = useState(poems);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!session || !session.isAdmin) {
-      router.push("/api/auth/signin");
-    }
-  }, []);
-
-  if (!session || !session.isAdmin) {
-    return <div>Unauthorized! Redirecting to Login...</div>;
-  }
 
   async function publish() {
     if (editId === undefined) {
@@ -131,5 +118,11 @@ export async function getServerSideProps(context) {
     .project({ _id: { $toString: "$_id" }, text: 1, timestamp: 1 })
     .toArray();
 
-  return { props: { poems, session: await getSession(context) } };
+  const session = await getSession(context);
+
+  if (!session || !session.isAdmin) {
+    return { redirect: { destination: "/api/auth/signin" } };
+  }
+
+  return { props: { poems } };
 }

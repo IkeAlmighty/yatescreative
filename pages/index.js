@@ -1,7 +1,8 @@
 import Navigation from "../components/Navigation";
 import Head from "next/head";
-import Markdown from "../components/Markdown";
+import Image from "next/image";
 import clientPromise from "../utils/mongodb";
+import TimeWidget from "../components/TimeWidget";
 
 export default function Home({ poems }) {
   return (
@@ -10,6 +11,23 @@ export default function Home({ poems }) {
         <title>Yates Creative</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <div className="with-navbar">
+        {/* 
+        FIXME: Need to find a different image, 
+        I don't have the liscense on this one 
+        */}
+        <Image
+          src="/banana.jpg"
+          layout="responsive"
+          width={680}
+          height={453}
+          alt=""
+        />
+      </div>
+      <div className="fixed bottom-0 left-0 w-full opacity-90 bg-slate-100">
+        <TimeWidget />
+      </div>
 
       <Navigation />
     </div>

@@ -6,12 +6,12 @@ import clientPromise from "../../utils/mongodb";
 export default function Poems({ poems }) {
   return (
     <>
-      <Navigation />
-      <div className="max-w-screen-sm mx-auto">
-        <Head>
-          <title>Yates Creative</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+      <Head>
+        <title>Yates Creative</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <div className="content-container">
         <h2>Poetry By Isaac Yates</h2>
         <hr />
         {poems.map((poem) => (
@@ -23,6 +23,8 @@ export default function Poems({ poems }) {
           </div>
         ))}
       </div>
+
+      <Navigation />
     </>
   );
 }

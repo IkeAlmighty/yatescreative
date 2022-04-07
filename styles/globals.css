@@ -32,3 +32,11 @@ p {
 input {
   padding: 10px;
 }
+
+.with-navbar {
+  @apply mt-[56px] md:mt-[64px];
+}
+
+.content-container {
+  @apply mt-[112px] md:mt-[128px] max-w-screen-sm mx-auto px-3;
+}
