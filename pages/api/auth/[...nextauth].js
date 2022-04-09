@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import GithubProvider from "next-auth/providers/github";
-import clientPromise from "../../../utils/mongodb";
+import clientPromise from "../../../lib/mongodb";
 
 export default NextAuth({
   // Configure one or more authentication providers

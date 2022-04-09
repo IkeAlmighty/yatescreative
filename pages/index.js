@@ -1,9 +1,9 @@
-import Navigation from "../components/Navigation";
+import Navigation from "../lib/components/Navigation";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import clientPromise from "../utils/mongodb";
-import TimeWidget from "../components/TimeWidget";
+import clientPromise from "../lib/mongodb";
+import TimeWidget from "../lib/components/TimeWidget";
 
 export default function Home({ poems }) {
   return (

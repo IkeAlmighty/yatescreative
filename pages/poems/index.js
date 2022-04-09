@@ -1,7 +1,7 @@
-import Navigation from "../../components/Navigation";
+import Navigation from "../../lib/components/Navigation";
 import Head from "next/head";
-import Markdown from "../../components/Markdown";
-import clientPromise from "../../utils/mongodb";
+import Markdown from "../../lib/components/Markdown";
+import clientPromise from "../../lib/mongodb";
 
 export default function Poems({ poems }) {
   return (

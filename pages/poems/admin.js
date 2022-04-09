@@ -1,6 +1,6 @@
 import { getSession } from "next-auth/client";
 import { useState, useRef } from "react";
-import Markdown from "../../components/Markdown";
+import Markdown from "../../lib/components/Markdown";
 
 import styles from "./index.module.css";
 

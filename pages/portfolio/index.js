@@ -1,4 +1,4 @@
-import Navigation from "../../components/Navigation";
+import Navigation from "../../lib/components/Navigation";
 
 export default function Portfolio() {
   return (

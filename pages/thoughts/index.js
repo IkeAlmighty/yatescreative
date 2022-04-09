@@ -1,4 +1,4 @@
-import Navigation from "../../components/Navigation";
+import Navigation from "../../lib/components/Navigation";
 import clientPromise from "../../utils/mongodb";
 
 export default function Index({ articleData }) {

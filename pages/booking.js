@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Navigation from "../components/Navigation";
+import Navigation from "../lib/components/Navigation";
 
 export default function Booking() {
   const calendlyContainer = useRef();
