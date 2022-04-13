@@ -1,11 +1,15 @@
 import Navigation from "../../lib/components/Navigation";
-import clientPromise from "../../utils/mongodb";
+import ThoughtPreviewCard from "../../lib/components/thoughts/ThoughtPreviewCard";
+import clientPromise from "../../lib/mongodb";
+import S3Image from "../../lib/components/S3Image";
 
 export default function Index({ articleData }) {
   return (
     <div className="content-container">
       {articleData.map((articleData) => (
-        <div key={articleData._id}></div>
+        <div key={articleData._id} className="m-3">
+          <ThoughtPreviewCard articleData={articleData} />
+        </div>
       ))}
 
       <Navigation />
@@ -19,15 +23,17 @@ export async function getServerSideProps() {
   const articleData = await client
     .db()
     .collection("thoughts")
-    .find({})
+    .find({ draft: false })
     .project({
       _id: { $toString: "$_id" },
-      text: true,
+      markdown: true,
       timestamp: true,
       title: true,
       imageKey: true,
     })
     .toArray();
+
+  console.log(articleData);
 
   return { props: { articleData } };
 }

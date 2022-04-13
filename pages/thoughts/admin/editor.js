@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import S3Upload from "../../../lib/components/S3Upload";
 import clientPromise from "../../../lib/mongodb";
 import marked from "marked";
@@ -11,6 +11,8 @@ export default function ThoughtsEditor({ articleData }) {
 
   const [showMd, setShowMd] = useState(true);
 
+  const [savePending, setSavePending] = useState(false);
+
   function createMarkdown() {
     const rawMarkup = marked(markdown);
     return { __html: rawMarkup };
@@ -20,8 +22,45 @@ export default function ThoughtsEditor({ articleData }) {
     // add it to the image key display:
     setImageKeys([...imageKeys, key]);
 
-    // TODO: add it to the draft in the database:
+    // update the draft in the database:
   }
+
+  async function saveArticle() {
+    const doc = {
+      _id: articleData._id,
+      markdown,
+      title,
+      imageKeys,
+    };
+    let response = await fetch("/api/thoughts/upsert", {
+      method: "POST",
+      body: JSON.stringify(doc),
+    });
+
+    if (response.status >= 400) {
+      alert(`Status ${response.status}! Server Error`);
+    }
+  }
+
+  useEffect(() => {
+    // add an event to look for keyboard presses
+    window.addEventListener("keydown", () => {
+      setSavePending(true);
+
+      console.log("starting timeout");
+
+      setTimeout(async () => {
+        console.log("save check", savePending);
+        if (savePending) {
+          console.log("savin");
+          await saveArticle();
+          setSavePending(false);
+
+          console.log("saveing!!!!");
+        }
+      }, 1000);
+    });
+  }, []);
 
   return (
     <div>
@@ -110,6 +149,8 @@ export async function getServerSideProps(context) {
     .findOne({ _id: ObjectId(_id) }, { $project: { _id: 0 } });
 
   articleData._id = _id;
+
+  console.log(articleData);
 
   return { props: { articleData } };
 }

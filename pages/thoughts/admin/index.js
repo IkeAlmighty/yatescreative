@@ -4,6 +4,14 @@ import ThoughtPreviewCard from "../../../lib/components/thoughts/ThoughtPreviewC
 import clientPromise from "../../../lib/mongodb";
 
 export default function ThoughtsAdmin({ articlesData }) {
+  async function deleteArticle(_id) {
+    let deleteResponse = await fetch(`/api/thoughts/deleteById?_id=${_id}`);
+
+    if (deleteResponse.status !== 204) {
+      alert(`status ${deleteResponse.status}: ${await deleteResponse.text()}`);
+    }
+  }
+
   return (
     <div className="m-1 md:m-10">
       <Link href="/thoughts/admin/editor">
@@ -14,7 +22,7 @@ export default function ThoughtsAdmin({ articlesData }) {
 
       {articlesData.map((articleData) => {
         return (
-          <div key={articleData._id}>
+          <div key={articleData._id} className="my-10">
             <ThoughtPreviewCard articleData={articleData} />
             <div>
               <Link href={`/thoughts/admin/editor?_id=${articleData._id}`}>
@@ -23,7 +31,9 @@ export default function ThoughtsAdmin({ articlesData }) {
                 </a>
               </Link>
 
-              <button>Delete</button>
+              <button onClick={() => deleteArticle(articleData._id)}>
+                Delete
+              </button>
             </div>
           </div>
         );
