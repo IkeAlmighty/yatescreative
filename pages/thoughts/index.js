@@ -1,7 +1,6 @@
 import Navigation from "../../lib/components/Navigation";
 import ThoughtPreviewCard from "../../lib/components/thoughts/ThoughtPreviewCard";
 import clientPromise from "../../lib/mongodb";
-import S3Image from "../../lib/components/S3Image";
 
 export default function Index({ articleData }) {
   return (
