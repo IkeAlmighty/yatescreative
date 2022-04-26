@@ -8,10 +8,12 @@ export default function Portfolio() {
       <div className="with-navbar">
         <div className="my-6 max-w-lg md:p-0 p-2 mx-auto">
           <div className="pt-10 pb-6 mb-20 border-b-2 border-black">
-            <h1>Isaac Yates</h1>
-            <div>Website Development Portfolio</div>
+            <h1 className="mb-1">Website Development Portfolio</h1>
+            <h3>Isaac Yates</h3>
             <a href="/resume.pdf" download>
-              <div className="text-blue-600">(click here for resume)</div>
+              <div className="text-blue-600 text-right">
+                (click here for resume)
+              </div>
             </a>
           </div>
 

@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: underdog;
-  src: url('/fonts/Underdog-Regular.ttf');
+  src: url("/fonts/Underdog-Regular.ttf");
 }
 
 .font-underdog {
@@ -25,8 +25,14 @@ h2 {
   @apply text-2xl font-bold my-6;
 }
 
-button, input[type="submit"], input[type="button"] {
-  @apply border-2 rounded px-2 px-5
+h3 {
+  @apply text-xl font-bold;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+  @apply border-2 rounded px-5;
 }
 
 a {
@@ -35,7 +41,7 @@ a {
 }
 
 p {
-  @apply my-10 text-justify
+  @apply my-10 text-justify;
 }
 
 input {
