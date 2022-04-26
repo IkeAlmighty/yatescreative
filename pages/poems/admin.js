@@ -1,4 +1,4 @@
-import { getSession } from "next-auth/client";
+import { serverSide } from "../../lib/auth";
 import { useState, useRef } from "react";
 import Markdown from "../../lib/components/Markdown";
 import clientPromise from "../../lib/mongodb";
@@ -110,6 +110,11 @@ export default function EditPoem({ poems }) {
 }
 
 export async function getServerSideProps(context) {
+  // redirect if the user is not authorized (development env does not redirect)
+  if (!(await serverSide.authorized(context))) {
+    return { redirect: { destination: "/api/auth/signin" } };
+  }
+
   const client = await clientPromise;
 
   let poems = await client
@@ -118,12 +123,6 @@ export async function getServerSideProps(context) {
     .find({})
     .project({ _id: { $toString: "$_id" }, text: 1, timestamp: 1 })
     .toArray();
-
-  const session = await getSession(context);
-
-  if (!session || !session.isAdmin) {
-    return { redirect: { destination: "/api/auth/signin" } };
-  }
 
   return { props: { poems } };
 }

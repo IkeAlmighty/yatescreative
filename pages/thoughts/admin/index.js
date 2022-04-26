@@ -1,10 +1,17 @@
-import { getSession } from "next-auth/client";
 import Link from "next/link";
 import ThoughtPreviewCard from "../../../lib/components/thoughts/ThoughtPreviewCard";
 import clientPromise from "../../../lib/mongodb";
+import { serverSide } from "../../../lib/auth";
+import { useState } from "react";
 
 export default function ThoughtsAdmin({ articlesData }) {
+  const [_articlesData, setArticlesData] = useState(articlesData);
+
   async function deleteArticle(_id) {
+    // first, remove it from the view:
+    setArticlesData(_articlesData.filter((a) => a._id !== _id));
+
+    // then remove it from the database:
     let deleteResponse = await fetch(`/api/thoughts/deleteById?_id=${_id}`);
 
     if (deleteResponse.status !== 204) {
@@ -20,7 +27,7 @@ export default function ThoughtsAdmin({ articlesData }) {
         </a>
       </Link>
 
-      {articlesData.map((articleData) => {
+      {_articlesData.map((articleData) => {
         return (
           <div key={articleData._id} className="my-10">
             <ThoughtPreviewCard articleData={articleData} />
@@ -43,9 +50,8 @@ export default function ThoughtsAdmin({ articlesData }) {
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context);
-
-  if (!session || !session.isAdmin) {
+  // redirect if the user is not authorized (development env does not redirect
+  if (!(await serverSide.authorized(context))) {
     return { redirect: { destination: "/api/auth/signin" } };
   }
 
