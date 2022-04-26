@@ -20,6 +20,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sha256": "^0.2.0",
+    "sharp": "^0.30.4",
     "twilio": "^3.76.1"
   },
   "devDependencies": {
