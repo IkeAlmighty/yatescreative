@@ -2,7 +2,6 @@ import Navigation from "../lib/components/Navigation";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import clientPromise from "../lib/mongodb";
 import TimeWidget from "../lib/components/TimeWidget";
 
 export default function Home({ poems }) {
@@ -13,64 +12,18 @@ export default function Home({ poems }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className="with-navbar with-footer">
-        <Image
-          src="/banana.jpg"
-          layout="responsive"
-          width={680}
-          height={453}
-          alt=""
-          priority={true}
-          className="hidden md:visible"
-        />
-
-        <div className="md:hidden">
-          <Image
-            src="/banana.jpg"
-            layout="responsive"
-            width={453}
-            height={453}
-            alt=""
-            priority={true}
-            className="rotate-90"
-          />
-        </div>
-
-        <div className="md:hidden">
-          <Image
-            src="/banana.jpg"
-            layout="responsive"
-            width={680}
-            height={453}
-            alt=""
-            priority={true}
-            className="rotate-180"
-          />
-        </div>
-
-        <div className="md:hidden">
-          <Image
-            src="/banana.jpg"
-            layout="responsive"
-            width={453}
-            height={453}
-            alt=""
-            priority={true}
-            className="-rotate-90 "
-          />
-        </div>
-
+      <div className="with-navbar max-w-3xl mx-auto">
         <div className="text-center pt-20">
           <Image
             src="/android-chrome-192x192.png"
             layout="fixed"
             width={192}
             height={192}
-            alt=""
+            alt="YC"
           />
         </div>
 
-        <div className="text-center md:text-lg mt-10">
+        <div className="text-center md:text-lg my-10">
           <Link href="/poems">
             <a className="block my-5 md:inline-block md:mx-5">Poetry</a>
           </Link>
@@ -87,29 +40,25 @@ export default function Home({ poems }) {
             </a>
           </Link>
         </div>
+
+        {/* self portrait */}
+        <Image
+          src="/portraits/IMG_7530.jpg"
+          layout="responsive"
+          width={3648}
+          height={5107}
+          alt="picture of Isaac Yates"
+          priority={true}
+          className="hidden md:visible"
+        />
       </div>
 
       {/* footer */}
-      <div className="footer">
+      {/* <div className="footer">
         <TimeWidget />
-      </div>
+      </div> */}
 
       <Navigation />
     </div>
   );
-}
-
-export async function getServerSideProps(context) {
-  const client = await clientPromise;
-
-  const poems_unordered = await client
-    .db()
-    .collection("poems")
-    .find({})
-    .project({ _id: 0 })
-    .toArray();
-
-  const poems = poems_unordered.sort((a, b) => b.timestamp - a.timestamp);
-
-  return { props: { poems } };
 }
