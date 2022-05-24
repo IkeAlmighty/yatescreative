@@ -3,14 +3,16 @@ import { ObjectId } from "mongodb";
 
 export default async function handler(req, res) {
   let doc = JSON.parse(req.body);
-  delete doc._id;
+  doc._id = ObjectId(doc._id);
+
+  console.log("doc to save", doc);
 
   const client = await clientPromise;
 
-  const mongoUpsertResponse = await client
+  const mongoUpdateResponse = await client
     .db()
     .collection("thoughts")
-    .updateOne({ _id: ObjectId(doc._id) }, { $set: doc }, { upsert: true });
+    .updateOne({ _id: doc._id }, { $set: doc });
 
   res.end();
 }

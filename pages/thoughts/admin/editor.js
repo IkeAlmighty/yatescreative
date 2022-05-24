@@ -1,28 +1,86 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import S3Upload from "../../../lib/components/S3Upload";
 import clientPromise from "../../../lib/mongodb";
 import marked from "marked";
+import renderer from "../../../lib/marked-s3image-renderer";
 import { ObjectId } from "mongodb";
+import { serverSide } from "../../../lib/auth";
+import { fetchImageUrl } from "../../../lib/s3";
+
+/**
+ * This renderer integrates with s3 images.
+ * Used in tandem with sessionStorage, and doesn't work without
+ * setting the value of 'marked-s3-image-map', which
+ * this component does via useEffect hook.
+ *  */
+marked.use({ renderer });
 
 export default function ThoughtsEditor({ articleData }) {
+  // despite having ref objects for these two, we still render
+  // title and markdown in preview mode, so we have to add useState vars:
   const [markdown, setMarkdown] = useState(articleData?.markdown || "");
   const [title, setTitle] = useState(articleData?.title || "");
+
   const [imageKeys, setImageKeys] = useState(articleData?.imageKeys || []);
+
+  // These ref objects are used so that we can make prefill
+  // data to these elements from the database on page load:
+  const markdownElement = useRef();
+  const titleElement = useRef();
+
+  useEffect(() => {
+    // prefill articleData:
+    markdownElement.current.value = articleData?.markdown || "";
+    titleElement.current.value = articleData?.title || "";
+  }, []);
 
   const [showMd, setShowMd] = useState(true);
 
-  const [savePending, setSavePending] = useState(false);
+  // This is needed to allow dynamic image fetches from
+  // Amazon S3 to work with marked.
+  useEffect(() => {
+    // grab the urls for each imagekey, and
+    // then make them available to marked
+    // by storing them in sessionStorage:
+    async function storeImageUrls() {
+      const imageMap = {};
+
+      for (let i = 0; i < imageKeys.length; i++) {
+        const key = imageKeys[i];
+        const apiResponse = await fetchImageUrl(key);
+        imageMap[key] = apiResponse.url;
+      }
+
+      sessionStorage.setItem("marked-s3-image-map", JSON.stringify(imageMap));
+    }
+
+    // this is ran each time to update the imageKeys in the database
+    async function updateImageKeys() {
+      // update the draft in the database:
+      const doc = { imageKeys };
+
+      let response = await fetch("/api/thoughts/updateById", {
+        method: "POST",
+        body: JSON.stringify(doc),
+      });
+
+      if (response.status >= 400) {
+        alert(`Status ${response.status}! Server Error`);
+      }
+    }
+
+    storeImageUrls();
+    updateImageKeys();
+  }, [imageKeys]);
 
   function createMarkdown() {
-    const rawMarkup = marked(markdown);
+    const rawMarkup = marked.parse(markdown);
     return { __html: rawMarkup };
   }
 
-  function addImageKey(key) {
+  async function addImageKey(key) {
     // add it to the image key display:
     setImageKeys([...imageKeys, key]);
-
-    // update the draft in the database:
   }
 
   async function saveArticle() {
@@ -32,7 +90,8 @@ export default function ThoughtsEditor({ articleData }) {
       title,
       imageKeys,
     };
-    let response = await fetch("/api/thoughts/upsert", {
+
+    let response = await fetch("/api/thoughts/updateById", {
       method: "POST",
       body: JSON.stringify(doc),
     });
@@ -41,26 +100,6 @@ export default function ThoughtsEditor({ articleData }) {
       alert(`Status ${response.status}! Server Error`);
     }
   }
-
-  useEffect(() => {
-    // add an event to look for keyboard presses
-    window.addEventListener("keydown", () => {
-      setSavePending(true);
-
-      console.log("starting timeout");
-
-      setTimeout(async () => {
-        console.log("save check", savePending);
-        if (savePending) {
-          console.log("savin");
-          await saveArticle();
-          setSavePending(false);
-
-          console.log("saveing!!!!");
-        }
-      }, 1000);
-    });
-  }, []);
 
   return (
     <div>
@@ -71,12 +110,19 @@ export default function ThoughtsEditor({ articleData }) {
         </button>
       </div>
 
+      <div className="max-w-3xl mx-auto p-3">
+        <button className="p-2" onClick={async () => await saveArticle()}>
+          Save
+        </button>
+      </div>
+
       {/* Title Field */}
       <div className={`${showMd ? "block" : "hidden"} max-w-3xl mx-auto p-3`}>
         <input
           type="text"
           className="border-2"
           placeholder="Title"
+          ref={titleElement}
           onChange={(e) => setTitle(e.target.value)}
         />
       </div>
@@ -89,6 +135,7 @@ export default function ThoughtsEditor({ articleData }) {
       >
         <textarea
           className="block border-2 p-3 w-full h-full"
+          ref={markdownElement}
           onChange={(e) => setMarkdown(e.target.value)}
           placeholder="## Markdown"
         ></textarea>
@@ -119,6 +166,11 @@ export default function ThoughtsEditor({ articleData }) {
 }
 
 export async function getServerSideProps(context) {
+  // redirect if the user is not authorized (development env does not redirect)
+  if (!(await serverSide.authorized(context))) {
+    return { redirect: { destination: "/api/auth/signin" } };
+  }
+
   const {
     query: { _id },
   } = context;
@@ -149,8 +201,6 @@ export async function getServerSideProps(context) {
     .findOne({ _id: ObjectId(_id) }, { $project: { _id: 0 } });
 
   articleData._id = _id;
-
-  console.log(articleData);
 
   return { props: { articleData } };
 }
