@@ -9,7 +9,6 @@ export default async function handler(req, res) {
 
   const { message, name, returnInfo } = body;
 
-  // TODO: send message to my phone
   const twilioClient = twilio(accountSid, authToken);
   let twilioResponse = await twilioClient.messages.create({
     body: `${name}: \n\n${message} \n\n RETURN TO: ${returnInfo}`,
@@ -17,7 +16,6 @@ export default async function handler(req, res) {
     to: "+14052024472",
   });
 
-  console.log(twilioResponse);
   // TODO: respond with 200 if successful,
   // TODO: otherwise respond with appropiate error message:
 
