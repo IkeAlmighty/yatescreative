@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export default function Index() {
   const articleDataList = [
-    {
-      title: "Why Work in Software?",
-      description:
-        "Read my thoughts on being a sofware developer, and how I find meaning in my work.",
-      slug: "motivations",
-    },
+    // {
+    //   title: "Why Work in Software?",
+    //   description:
+    //     "Read my thoughts on being a sofware developer, and how I find meaning in my work.",
+    //   slug: "motivations",
+    // },
   ];
 
   return (
