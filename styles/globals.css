@@ -64,3 +64,7 @@ input {
 .content-container {
   @apply mt-[112px] md:mt-[128px] max-w-screen-sm mx-auto px-3;
 }
+
+.blue-href a {
+  @apply text-blue-500;
+}
