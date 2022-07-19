@@ -21,7 +21,7 @@ I made Yates Creative so that I would have a place to publicly record my thought
 
 This question, for some reason, has really hung me up. Like most problems, I overthought it initially. Building your own frontend CMS is tempting, but ultimately a waste of time unless you are making money from people using it. Why? Because markdown rocks, and you can just type all your new posts in vscode with the handy ctrl + K + V markdown viewer.
 
-That in mind, I have started (not yet pushed as of 7/9/2022) a commit to take all of my long form posts under /thoughts from markdown files in the /public folder. It's fairly easy to convert markdwon files in react using a popular npm library called [marked](https://www.npmjs.com/package/marked).
+That in mind, I did some research and found mdx loader for nextjs. It basically takes markdown files and converts them into full webpages in the app, using the file based routing system built into nextjs.
 
 For my poetry however, I will continue to use a hand crafted on-site UI for typing things up, because I find that poetry is easier to post on the fly from my phone.
 
