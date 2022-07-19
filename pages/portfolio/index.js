@@ -27,20 +27,17 @@ export default function Portfolio() {
           </p>
 
           <PortfolioCard
-            deploymentLink="https://norman.events"
-            imgSrc="/headernormanevents.png"
-            title="norman.events"
-            description="Norman Events is a local event aggregator for my home town, Norman,
-            Oklahoma."
-            githubLink="https://github.com/IkeAlmighty/norman.events"
+            deploymentLink="https://clockinout.vercel.app/"
+            title="Clock In/Out"
+            description="A time tracking app."
+            githubLink="https://github.com/IkeAlmighty/clockinout"
           />
           <hr className="my-20" />
           <PortfolioCard
-            deploymentLink="https://grayowl.coffee"
-            imgSrc="/headergrayowlcoffee.png"
-            title="grayowl.coffee"
-            description="A simple landing page for the coffee shop I work at, Gray Owl Coffee."
-            githubLink="https://github.com/IkeAlmighty/grayowlcoffee"
+            deploymentLink="https://takeikesstuff.vercel.app/"
+            title="Take My Stuff"
+            description="A web app for giving away my random items."
+            githubLink="https://github.com/IkeAlmighty/takeikesstuff"
           />
           <hr />
         </div>
