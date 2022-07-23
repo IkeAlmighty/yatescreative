@@ -41,7 +41,7 @@ export default function Portfolio() {
             githubLink="https://github.com/IkeAlmighty/takeikesstuff"
           />
           <hr />
-
+          <div id="art" />
           <div className="text-5xl font-bold mt-60">Also, Coffee!!!</div>
           <div className="mb-10">
             &#40; Professional Latte Art Portfolio &#41;
