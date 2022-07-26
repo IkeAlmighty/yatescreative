@@ -68,3 +68,11 @@ input {
 .blue-href a {
   @apply text-blue-500;
 }
+
+ol > li {
+  @apply list-decimal;
+}
+
+ul > li {
+  @apply ml-10 list-disc;
+}
