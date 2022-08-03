@@ -46,7 +46,7 @@ export default function Portfolio() {
           <div className="mb-10">
             &#40; Professional Latte Art Portfolio &#41;
           </div>
-          {[0, 1, 2, 3, 4, 5, 6].map((filename, index) => (
+          {[0, 1, 2, 3, 4, 5, 6, 7].reverse().map((filename, index) => (
             <div
               key={`${filename}-latteart`}
               className="w-full h-[300px] relative bg-black"
