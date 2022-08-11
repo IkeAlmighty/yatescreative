@@ -14,6 +14,8 @@ export default function Home({ poems }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <div id="freelance-webdev"></div>
+
       <div className="with-navbar max-w-3xl mx-auto px-3">
         <div className="mx-auto text-center mt-24 px-1">
           <div className="mx-auto text-left my-6 max-w-3xl">
@@ -39,6 +41,7 @@ export default function Home({ poems }) {
           <div className="mx-auto text-left my-6 max-w-xl"></div>
         </div>
         {/* Freelance Barista CTA */}
+        <div id="freelance-barista"></div>
         <div className="mx-auto text-center mt-24 px-1">
           <div className="mx-auto text-left my-6 max-w-3xl">
             <div className="mx-auto my-4 text-4xl">
