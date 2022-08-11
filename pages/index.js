@@ -38,7 +38,13 @@ export default function Home({ poems }) {
             </Link>
           </div>
 
-          <div className="mx-auto text-left my-6 max-w-xl"></div>
+          <div className="mx-auto text-left my-6 max-w-xl">
+            <div className="my-6">
+              I am a junior level full stack website developer, with 10+ years
+              of hobby coding experience under my belt. This website was
+              handcrafted by me using popular web development technologies.
+            </div>
+          </div>
         </div>
         {/* Freelance Barista CTA */}
         <div id="freelance-barista"></div>
