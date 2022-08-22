@@ -46,6 +46,7 @@ export default function Home({ poems }) {
             </div>
           </div>
         </div>
+
         {/* Freelance Barista CTA */}
         <div id="freelance-barista"></div>
         <div className="mx-auto text-center mt-24 px-1">
@@ -68,7 +69,7 @@ export default function Home({ poems }) {
             </Link>
           </div>
           <div className="text-xs my-1">
-            &#40; Minneapolis / St. Paul Area Only &#41;
+            &#40; Minneapolis / St. Paul Area Only, Starting September 15 &#41;
           </div>
 
           <div className="mx-auto text-left my-6 max-w-xl">
