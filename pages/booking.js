@@ -24,7 +24,11 @@ export default function Booking() {
           <div
             className="calendly-inline-widget"
             data-url="https://calendly.com/isaacyates"
-            style={{ minWidth: "320px", height: "630px" }}
+            style={{
+              minWidth: "320px",
+              height: "2000px",
+              overflowY: "visible",
+            }}
           ></div>
 
           {/* 
