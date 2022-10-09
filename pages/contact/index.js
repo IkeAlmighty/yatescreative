@@ -36,6 +36,13 @@ export default function About() {
 
   return (
     <div>
+      {sendingMessage && (
+        <div className="absolute w-full h-full top-0 bg-black opacity-80">
+          <div className="absolute w-full top-1/2 text-center text-white">
+            Sending Message...
+          </div>
+        </div>
+      )}
       <div className="with-navbar content-container">
         <h1></h1>
 
