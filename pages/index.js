@@ -19,13 +19,17 @@ export default function Home({ poems }) {
       <div className="with-navbar max-w-3xl mx-auto px-3">
         <div className="mx-auto text-center mt-24 px-1">
           <div className="mx-auto text-left my-6 max-w-3xl">
-            <div className="mx-auto my-4 text-4xl">
-              I can code your website.
-            </div>
+            <div className="mx-auto my-4 text-4xl">20 dollar webpages</div>
             <ul>
               <li>Are you a small business owner or manager?</li>
-              <li>Do you need a website?</li>
+              <li>Artist?</li>
+              <li>Musician?</li>
+              <li>Looking to monetize your hobby?</li>
             </ul>
+            <div className="my-3 font-bold">
+              You need a website. A landing page for your vision, aesthetic, and
+              services.
+            </div>
           </div>
           <div className="bg-black rounded max-w-3xl mx-auto cursor-pointer text-white p-6 text-4xl">
             <Link href="/booking">
@@ -43,47 +47,6 @@ export default function Home({ poems }) {
               I am a junior level full stack website developer, with 10+ years
               of hobby coding experience under my belt. This website was
               handcrafted by me using popular web development technologies.
-            </div>
-          </div>
-        </div>
-
-        {/* Freelance Barista CTA */}
-        <div id="freelance-barista"></div>
-        <div className="mx-auto text-center mt-24 px-1">
-          <div className="mx-auto text-left my-6 max-w-3xl">
-            <div className="mx-auto my-4 text-4xl">
-              I can cover your shifts.
-            </div>
-            <ul>
-              <li>Are you a coffeeshop owner or manager?</li>
-              <li>In a tight spot schedule-wise?</li>
-              <li>Need some time off?</li>
-            </ul>
-          </div>
-          <div className="bg-black rounded max-w-3xl mx-auto cursor-pointer text-white p-6 text-4xl">
-            <Link href="/booking">
-              <a>
-                Schedule Shift
-                <div className="text-xl mt-3">Freelance Barista</div>
-              </a>
-            </Link>
-          </div>
-          <div className="text-xs my-1">
-            &#40; Minneapolis / St. Paul Area Only, Starting September 15 &#41;
-          </div>
-
-          <div className="mx-auto text-left my-6 max-w-xl">
-            <div className="my-6">
-              I am friendly, a hard worker, and have 3 years of experience in
-              3rd Wave coffee. Check out my &nbsp;
-              <Link href="https://yatescreative.com/portfolio#art">
-                <a className="text-blue-500">latte art portfolio</a>
-              </Link>
-              &nbsp; or &nbsp;
-              <Link href="https://yatescreative.com/contact">
-                <a className="text-blue-500">send me a message</a>
-              </Link>
-              &nbsp; if you have any questions. Feel free to ask for references!
             </div>
           </div>
         </div>
@@ -111,25 +74,16 @@ export default function Home({ poems }) {
       </div>
 
       <div className="text-center md:text-lg my-10">
-        <Link href="/poems">
-          <a className="block my-5 md:inline-block md:mx-5">Poetry</a>
+        <Link href="/portfolio#art">
+          <a className="block my-5 md:inline-block md:mx-5">Coffee</a>
         </Link>
 
         <Link href="/portfolio">
-          <a className="block my-5 md:inline-block md:mx-5 md:px-10 md:border-x-2">
+          <a className="block my-5 md:inline-block md:mx-5 md:px-10 md:border-l-2">
             Web Development
           </a>
         </Link>
-
-        <Link href="/thoughts">
-          <a className="block my-5 md:inline-block md:mx-5">Random Thoughts</a>
-        </Link>
       </div>
-
-      {/* footer */}
-      {/* <div className="footer">
-        <SocialMediaList />
-      </div> */}
 
       <div className="absolute xl:w-[200px] left-0 top-10 opacity-60">
         <LatteArt />
