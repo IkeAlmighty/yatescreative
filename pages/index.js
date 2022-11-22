@@ -19,7 +19,7 @@ export default function Home({ poems }) {
       <div className="with-navbar max-w-3xl mx-auto px-3">
         <div className="mx-auto text-center mt-24 px-1">
           <div className="mx-auto text-left my-6 max-w-3xl">
-            <div className="mx-auto my-4 text-4xl">20 dollar webpages</div>
+            <div className="mx-auto my-4 text-4xl">Custom Web Pages</div>
             <ul>
               <li>Are you a small business owner or manager?</li>
               <li>Artist?</li>
