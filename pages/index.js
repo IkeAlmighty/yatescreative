@@ -20,21 +20,14 @@ export default function Home({ poems }) {
         <div className="mx-auto text-center mt-24 px-1">
           <div className="mx-auto text-left my-6 max-w-3xl">
             <div className="mx-auto my-4 text-4xl">Custom Web Pages</div>
-            <ul>
-              <li>Are you a small business owner or manager?</li>
-              <li>Artist?</li>
-              <li>Musician?</li>
-              <li>Looking to monetize your hobby?</li>
-            </ul>
             <div className="my-3 font-bold">
-              You need a website. A landing page for your vision, aesthetic, and
-              services.
+              Feel free to contact me for general web development help! I am open to trades in place of monetary compesation.
             </div>
           </div>
           <div className="bg-black rounded max-w-3xl mx-auto cursor-pointer text-white p-6 text-4xl">
             <Link href="/booking">
               <a>
-                Plan a Meeting
+                Meet with Me
                 <div className="text-xl mt-3">
                   Website Development &#38; Management
                 </div>
